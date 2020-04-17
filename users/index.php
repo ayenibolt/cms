@@ -16,7 +16,7 @@ $extra="dashboard.php";
 $_SESSION['login']=$_POST['username'];
 $_SESSION['id']=$num['id'];
 $host=$_SERVER['HTTP_HOST'];
-//$uip=$_SERVER['REMOTE_ADDR'];
+$uip=$_SERVER['REMOTE_ADDR'];
 $status=1;
 $log=mysqli_query($con,"insert into userlog(uid,username,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$status')");
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
@@ -52,7 +52,7 @@ if(isset($_POST['change']))
 {
    $email=$_POST['email'];
     $contact=$_POST['contact'];
-    $password=md5($_POST['password']);
+    $password=password_hash()($_POST['password']);
 $query=mysqli_query($con,"SELECT * FROM users WHERE userEmail='$email' and contactNo='$contact'");
 $num=mysqli_fetch_array($query);
 if($num>0)
