@@ -4,8 +4,8 @@ header('X-FRAME-OPTIONS: SAMEORIGN');
 
 session_start();
 error_reporting(0);
-include("include/csrf.php"); 
-include("include/config.php");
+include("csrf.php"); 
+include("includes/config.php");
 if(isset($_POST['submit']))
 {
 
