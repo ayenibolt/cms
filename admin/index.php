@@ -20,7 +20,7 @@ if($num>0)
 		exit();
 	}else{
 		$_SESSION['errmsg']="Invalid password";
-$extra="index.php";
+$extra="login.php";
 $host  = $_SERVER['HTTPS_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
@@ -30,7 +30,7 @@ exit();
 else
 {
 $_SESSION['errmsg']="Invalid username or password";
-$extra="index.php";
+$extra="login.php";
 $host  = $_SERVER['HTTPS_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:https://$host$uri/$extra");
