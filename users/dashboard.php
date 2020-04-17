@@ -1,21 +1,13 @@
 <?php session_start();
 error_reporting(0);
-// include('includes/csrf.php');
+//include('includes/csrf.php');
 include('includes/config.php');
-/*if(strlen($_SESSION['login'])==0)
+if(strlen($_SESSION['login'])==0)
   { 
 header('location:index.php');
 }
-else{ */
-$fullname = $_SESSION['fullname'];
-if ($fullname == true) {
-	$query = "SELECT * FROM USERS WHERE fullname = '$fullname'";
-	$query_run = mysqli_query($conn, $query);
-	$result = mysqli_fetch_assoc($query_run);
-	$uname = $result['username'];
-}else {
-	header('location:index.php');
-}
+else{ 
+
 ?>
 
 <!DOCTYPE html>
