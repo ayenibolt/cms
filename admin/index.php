@@ -14,14 +14,14 @@ if($num>0)
 		$extra="manage-users.php";
 		$_SESSION['alogin']=$_POST['username'];
 		$_SESSION['id']=$num['id'];
-		$host=$_SERVER['HTTP_HOST'];
+		$host=$_SERVER['HTTPS_HOST'];
 		$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 		header("location:http://$host$uri/$extra");
 		exit();
 	}else{
 		$_SESSION['errmsg']="Invalid password";
 $extra="index.php";
-$host  = $_SERVER['HTTP_HOST'];
+$host  = $_SERVER['HTTPS_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
 exit();
@@ -31,9 +31,9 @@ else
 {
 $_SESSION['errmsg']="Invalid username or password";
 $extra="index.php";
-$host  = $_SERVER['HTTP_HOST'];
+$host  = $_SERVER['HTTPS_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-header("location:http://$host$uri/$extra");
+header("location:https://$host$uri/$extra");
 exit();
 }
 }
