@@ -33,10 +33,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="http://localhost/cms/users/">Login</a>
+                        <a href="/login.php">Login</a>
                     </li>
                     <li>
-                        <a href="http://localhost/cms/users/registration.php">Registration</a>
+                        <a href="/registration.php">Registration</a>
                     </li>
                     <!-- <li>
                         <a href="http://localhost/cms/admin/">admin</a>
