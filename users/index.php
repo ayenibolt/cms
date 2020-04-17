@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
 {
 	$username=$_POST['username'];
 	// $password=password_hash($_POST['password']);
-$ret=mysqli_query($con,"SELECT * FROM admin WHERE username='$username'");
+$ret=mysqli_query($con,"SELECT * FROM users WHERE username='$username'");
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
