@@ -33,10 +33,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="http://localhost/cms/users/">Login</a>
+                        <a href="/users/">Login</a>
                     </li>
                     <li>
-                        <a href="http://localhost/cms/users/registration.php">Registration</a>
+                        <a href="/users/registration.php">Registration</a>
                     </li>
                     <!-- <li>
                         <a href="http://localhost/cms/admin/">admin</a>
@@ -62,14 +62,14 @@
            
             <div class="item active">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://localhost/cms/img/c2.png');"></div>
+                <div class="fill" style="background-image:url('/img/c2.png');"></div>
                 <div class="carousel-caption">
                   
                 </div>
             </div>
             <div class="item">
                 <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://localhost/cms/img/c1.jpg');"></div>
+                <div class="fill" style="background-image:url('/img/c1.jpg');"></div>
                 <div class="carousel-caption">
                 
                 </div>
