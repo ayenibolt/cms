@@ -30,7 +30,7 @@ $uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
 mysqli_query($con,"insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')");
 $errormsg="Invalid password";
-$extra="login.php";
+$extra="index.php";
 }
 }
 else
@@ -40,7 +40,7 @@ $uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
 mysqli_query($con,"insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')");
 $errormsg="Invalid username or password";
-$extra="login.php";
+$extra="index.php";
 
 }
 }
