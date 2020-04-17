@@ -14,7 +14,7 @@ if($num>0)
 		$extra="manage-users.php";
 		$_SESSION['alogin']=$_POST['username'];
 		$_SESSION['id']=$num['id'];
-		$host=$_SERVER['HTTPS_HOST'];
+		$host=$_SERVER['HTTP_HOST'];
 		$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 		header("location:http://$host$uri/$extra");
 		exit();
