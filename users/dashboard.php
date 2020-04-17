@@ -1,5 +1,6 @@
 <?php session_start();
 error_reporting(0);
+include('includes/csrf.php');
 include('includes/config.php');
 if(strlen($_SESSION['login'])==0)
   { 
