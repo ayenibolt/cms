@@ -31,6 +31,8 @@ $status=0;
 mysqli_query($con,"insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')");
 $errormsg="Invalid password";
 $extra="index.php";
+header("location:http://$host$uri/$extra");
+exit();
 }
 }
 else
@@ -41,7 +43,8 @@ $status=0;
 mysqli_query($con,"insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')");
 $errormsg="Invalid username or password";
 $extra="index.php";
-
+header("location:http://$host$uri/$extra");
+exit();
 }
 }
 
