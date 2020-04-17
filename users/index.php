@@ -4,9 +4,11 @@ header('X-FRAME-OPTIONS: SAMEORIGN');
 
 session_start();
 error_reporting(0);
-include("csrf.php"); 
 include("includes/config.php");
+include("csrf.php"); 
 if(isset($_POST['submit']))
+{
+
 $ret=mysqli_query($con,"SELECT * FROM users WHERE userEmail='".$_POST['username']."'");
 $num=mysqli_fetch_array($ret);
 if($num>0)
@@ -18,7 +20,7 @@ $_SESSION['id']=$num['id'];
 $host=$_SERVER['HTTP_HOST'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=1;
-$log=mysqli_query($con,"insert into userlog(uid,username,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$status')");
+$log=mysqli_query($con,"insert into userlog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$uip','$status')");
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
 exit();
@@ -26,11 +28,9 @@ exit();
 $_SESSION['login']=$_POST['username'];	
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
-mysqli_query($con,"insert into userlog(username,status) values('".$_SESSION['login']."','$status')");
+mysqli_query($con,"insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')");
 $errormsg="Invalid password";
-$extra="index.php";
-header("location:http://$host$uri/$extra");
-exit();
+$extra="login.php";
 }
 }
 else
@@ -40,9 +40,8 @@ $uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
 mysqli_query($con,"insert into userlog(username,userip,status) values('".$_SESSION['login']."','$uip','$status')");
 $errormsg="Invalid username or password";
-$extra="index.php";
-header("location:http://$host$uri/$extra");
-exit();
+$extra="login.php";
+
 }
 }
 
@@ -52,7 +51,7 @@ if(isset($_POST['change']))
 {
    $email=$_POST['email'];
     $contact=$_POST['contact'];
-    $password=password_hash()($_POST['password']);
+    $password=md5($_POST['password']);
 $query=mysqli_query($con,"SELECT * FROM users WHERE userEmail='$email' and contactNo='$contact'");
 $num=mysqli_fetch_array($query);
 if($num>0)
