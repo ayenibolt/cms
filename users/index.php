@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
 {
 	$username=$_POST['username'];
 	// $password=password_hash($_POST['password']);
-$ret=mysqli_query($con,"SELECT * FROM users WHERE username='$username'");
+$ret=mysqli_query($con,"SELECT * FROM users WHERE userEmail='$username'");
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
@@ -19,6 +19,8 @@ if($num>0)
 		$_SESSION['alogin']=$_POST['username'];
 		$_SESSION['id']=$num['id'];
 		$host=$_SERVER['HTTP_HOST'];
+		$status=1;
+		$log=mysqli_query($con,"insert into userlog(uid,username,status) values('".$_SESSION['id']."','".$_SESSION['login']."','$status')");
 		$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 		header("location:http://$host$uri/$extra");
 		exit();
@@ -26,6 +28,8 @@ if($num>0)
 		$_SESSION['errmsg']="Invalid password";
 $extra="index.php";
 $host  = $_SERVER['HTTP_HOST'];
+$status=0;
+mysqli_query($con,"insert into userlog(username,status) values('".$_SESSION['login']."','$status')");
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
 exit();
